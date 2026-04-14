@@ -62,6 +62,12 @@ router.get('/students/options', async (req, res) => {
     sections = sections.sort();
     courses = courses.sort();
 
+    // For B.Tech courses, ensure all years 1-4 are available
+    if (course && course.startsWith('B.Tech')) {
+      const allYears = [1, 2, 3, 4];
+      years = [...new Set([...years, ...allYears])].sort((a, b) => a - b);
+    }
+
     res.json({ courses, years, sections });
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });

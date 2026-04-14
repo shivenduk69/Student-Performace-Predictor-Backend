@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const bcrypt = require('bcryptjs');
 const Student = require('./models/Student');
+const Mentor = require('./models/Mentor');
 
 dotenv.config();
 
@@ -171,9 +173,29 @@ async function seedDatabase() {
 
     console.log('MongoDB connected');
 
-    // Clear existing students
+    // Clear existing students and mentors
     await Student.deleteMany({});
-    console.log('Cleared existing student records');
+    await Mentor.deleteMany({});
+    console.log('Cleared existing student and mentor records');
+
+    // Seed mentors
+    const mentors = [
+      { email: 'mentor@example.com', password: 'password123' },
+      { email: '2401301162@geetauniversity.edu.in', password: '1234' }
+    ];
+
+    for (const mentorData of mentors) {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(mentorData.password, salt);
+
+      const mentor = new Mentor({
+        email: mentorData.email,
+        password: hashedPassword,
+      });
+
+      await mentor.save();
+      console.log(`✅ Successfully seeded mentor: ${mentorData.email} (password: ${mentorData.password})`);
+    }
 
     // Insert seed data
     const result = await Student.insertMany(seedData);
