@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
+const studentRoutes = require('./routes/students');
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/edtech', {
 .catch(err => console.log(err));
 
 app.use('/api/auth', authRoutes);
+app.use('/api', studentRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
