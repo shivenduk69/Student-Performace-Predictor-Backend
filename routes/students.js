@@ -1,6 +1,7 @@
 const express = require('express');
 const Student = require('../models/Student');
 const Feedback = require('../models/Feedback');
+const { generateAIStudyPlan, generateAIPredictionReason } = require('../services/studyPlanService');
 
 const router = express.Router();
 
@@ -103,6 +104,56 @@ router.get('/student/:rollNo', async (req, res) => {
     res.json(student);
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
+// GET /student/:rollNo/study-plan-ai - Generate AI study roadmap from weak assignments
+router.get('/student/:rollNo/study-plan-ai', async (req, res) => {
+  try {
+    const { rollNo } = req.params;
+    const student = await Student.findOne({ rollNo });
+
+    if (!student) {
+      return res.status(404).json({ message: 'Student not found' });
+    }
+
+    const plan = await generateAIStudyPlan(student);
+    res.json({
+      rollNo: student.rollNo,
+      studentName: student.name,
+      ...plan,
+      generatedAt: new Date().toISOString(),
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: 'Failed to generate AI study plan',
+      error: err.message,
+    });
+  }
+});
+
+// GET /student/:rollNo/prediction-reason-ai - Explain why risk was predicted
+router.get('/student/:rollNo/prediction-reason-ai', async (req, res) => {
+  try {
+    const { rollNo } = req.params;
+    const student = await Student.findOne({ rollNo });
+
+    if (!student) {
+      return res.status(404).json({ message: 'Student not found' });
+    }
+
+    const result = await generateAIPredictionReason(student);
+    res.json({
+      rollNo: student.rollNo,
+      studentName: student.name,
+      ...result,
+      generatedAt: new Date().toISOString(),
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: 'Failed to explain prediction reason',
+      error: err.message,
+    });
   }
 });
 

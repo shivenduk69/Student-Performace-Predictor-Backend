@@ -25,16 +25,24 @@ const seedData = [
           {"date": "2024-02-12", "status": "Present"}
         ],
         "assignments": [
-          {"unit": "Unit 1", "marks": 22},
-          {"unit": "Unit 2", "marks": 20},
-          {"unit": "Unit 3", "marks": "Not Attempted"},
-          {"unit": "Unit 4", "marks": 18},
-          {"unit": "Unit 5", "marks": 24}
+          {"unit": "Assignment I (Unit I)", "marks": 22},
+          {"unit": "Assignment II (Unit II)", "marks": 20},
+          {"unit": "Assignment III (Unit III)", "marks": "Not Attempted"},
+          {"unit": "Assignment IV (Unit IV)", "marks": 18},
+          {"unit": "Assignment V (Unit V)", "marks": 24}
         ],
         "midsem": 35,
         "endsem": 78
       }
-    }
+    },
+    "complaints": [
+      {
+        "date": "2024-03-02",
+        "complaint": "Repeated classroom disruption and late submission of lab file.",
+        "actionTaken": "Email written to HOD and parent informed.",
+        "status": "Resolved"
+      }
+    ]
   },
   { 
     "name": "Mishaan Pandey", 
@@ -53,16 +61,17 @@ const seedData = [
           {"date": "2024-02-12", "status": "Absent"}
         ],
         "assignments": [
-          {"unit": "Unit 1", "marks": 25},
-          {"unit": "Unit 2", "marks": 23},
-          {"unit": "Unit 3", "marks": 20},
-          {"unit": "Unit 4", "marks": 22},
-          {"unit": "Unit 5", "marks": 25}
+          {"unit": "Assignment I (Unit I)", "marks": 25},
+          {"unit": "Assignment II (Unit II)", "marks": 23},
+          {"unit": "Assignment III (Unit III)", "marks": 20},
+          {"unit": "Assignment IV (Unit IV)", "marks": 22},
+          {"unit": "Assignment V (Unit V)", "marks": 25}
         ],
         "midsem": 42,
         "endsem": 85
       }
-    }
+    },
+    "complaints": []
   },
   { 
     "name": "Deepak Kumar", 
@@ -81,16 +90,24 @@ const seedData = [
           {"date": "2024-02-12", "status": "Present"}
         ],
         "assignments": [
-          {"unit": "Unit 1", "marks": 18},
-          {"unit": "Unit 2", "marks": 15},
-          {"unit": "Unit 3", "marks": 20},
-          {"unit": "Unit 4", "marks": "Not Attempted"},
-          {"unit": "Unit 5", "marks": 16}
+          {"unit": "Assignment I (Unit I)", "marks": 18},
+          {"unit": "Assignment II (Unit II)", "marks": 15},
+          {"unit": "Assignment III (Unit III)", "marks": 20},
+          {"unit": "Assignment IV (Unit IV)", "marks": "Not Attempted"},
+          {"unit": "Assignment V (Unit V)", "marks": 16}
         ],
         "midsem": 28,
         "endsem": 65
       }
-    }
+    },
+    "complaints": [
+      {
+        "date": "2024-03-08",
+        "complaint": "Missed two internal assessment submissions.",
+        "actionTaken": "Fine imposed and written warning issued.",
+        "status": "In Progress"
+      }
+    ]
   },
   { 
     "name": "Neha Singh", 
@@ -109,16 +126,24 @@ const seedData = [
           {"date": "2024-02-12", "status": "Present"}
         ],
         "assignments": [
-          {"unit": "Unit 1", "marks": 23},
-          {"unit": "Unit 2", "marks": 21},
-          {"unit": "Unit 3", "marks": 19},
-          {"unit": "Unit 4", "marks": 20},
-          {"unit": "Unit 5", "marks": 22}
+          {"unit": "Assignment I (Unit I)", "marks": 23},
+          {"unit": "Assignment II (Unit II)", "marks": 21},
+          {"unit": "Assignment III (Unit III)", "marks": 19},
+          {"unit": "Assignment IV (Unit IV)", "marks": 20},
+          {"unit": "Assignment V (Unit V)", "marks": 22}
         ],
         "midsem": 38,
         "endsem": 82
       }
-    }
+    },
+    "complaints": [
+      {
+        "date": "2024-03-11",
+        "complaint": "Unauthorized absence during tutorial hours.",
+        "actionTaken": "Counselling session scheduled with class mentor.",
+        "status": "Open"
+      }
+    ]
   },
   { 
     "name": "Rahul Verma", 
@@ -137,16 +162,30 @@ const seedData = [
           {"date": "2024-02-12", "status": "Present"}
         ],
         "assignments": [
-          {"unit": "Unit 1", "marks": 20},
-          {"unit": "Unit 2", "marks": "Not Attempted"},
-          {"unit": "Unit 3", "marks": 18},
-          {"unit": "Unit 4", "marks": 19},
-          {"unit": "Unit 5", "marks": 21}
+          {"unit": "Assignment I (Unit I)", "marks": 20},
+          {"unit": "Assignment II (Unit II)", "marks": "Not Attempted"},
+          {"unit": "Assignment III (Unit III)", "marks": 18},
+          {"unit": "Assignment IV (Unit IV)", "marks": 19},
+          {"unit": "Assignment V (Unit V)", "marks": 21}
         ],
         "midsem": 32,
         "endsem": 72
       }
-    }
+    },
+    "complaints": [
+      {
+        "date": "2024-03-15",
+        "complaint": "Low attendance despite prior warning.",
+        "actionTaken": "Email written to HOD and attendance undertaking submitted.",
+        "status": "In Progress"
+      },
+      {
+        "date": "2024-03-18",
+        "complaint": "Did not attempt Assignment II.",
+        "actionTaken": "Fine imposed and re-attempt assignment deadline assigned.",
+        "status": "Resolved"
+      }
+    ]
   },
   
   // Other courses

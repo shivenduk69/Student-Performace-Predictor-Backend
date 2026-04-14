@@ -61,6 +61,22 @@ const studentSchema = new mongoose.Schema({
       },
     },
   },
+  complaints: [{
+    date: {
+      type: String,
+    },
+    complaint: {
+      type: String,
+    },
+    actionTaken: {
+      type: String,
+    },
+    status: {
+      type: String,
+      enum: ['Open', 'In Progress', 'Resolved'],
+      default: 'In Progress',
+    },
+  }],
   createdAt: {
     type: Date,
     default: Date.now,

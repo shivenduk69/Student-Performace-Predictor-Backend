@@ -18,6 +18,10 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/edtech', {
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err));
 
+app.get('/hello', (req, res) => {
+  res.json({ message: 'Hello World' });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api', studentRoutes);
 
